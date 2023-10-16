@@ -1,0 +1,9 @@
+com/example/myapp/service/MyService.class
+com/example/myapp/controller/PointOfInterestController.class
+com/example/myapp/model/PointOfInterest.class
+com/example/myapp/service/PointOfInterestService.class
+com/example/myapp/repository/MyRepository.class
+com/example/myapp/controller/MyController.class
+com/example/myapp/MySpringBootApplication.class
+com/example/myapp/model/MyModel.class
+com/example/myapp/repository/PointOfInterestRepository.class

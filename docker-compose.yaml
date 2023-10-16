@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  # maven-build:
+  #   image: maven:3.8-jdk-11
+  #   volumes:
+  #     - ./backend:/backend
+  #   working_dir: /backend
+  #   command: mvn clean install
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: sampledb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+
+  backend:
+    image: your-spring-boot-image
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/sampledb
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+    depends_on:
+      # - maven-build
+      - postgres
+    ports:
+      - "8080:8080"
+
+  # frontend:
+  #   image: your-angular-image
+  #   ports:
+  #     - "4200:4200"
+
+  # nginx:
+  #   image: nginx:latest
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - backend
+  #     - frontend
+
+volumes:
+  postgres-data:
