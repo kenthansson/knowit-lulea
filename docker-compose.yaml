@@ -1,13 +1,6 @@
 version: '3'
 
 services:
-  # maven-build:
-  #   image: maven:3.8-jdk-11
-  #   volumes:
-  #     - ./backend:/backend
-  #   working_dir: /backend
-  #   command: mvn clean install
-
   postgres:
     image: postgres:latest
     environment:
@@ -21,7 +14,9 @@ services:
       - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   backend:
-    image: your-spring-boot-image
+    build:
+      context: ./backend
+      dockerfile: Dockerfile    
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/sampledb
       SPRING_DATASOURCE_USERNAME: user
