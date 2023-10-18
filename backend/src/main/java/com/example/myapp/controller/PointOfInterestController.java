@@ -8,8 +8,6 @@ import com.example.myapp.service.PointOfInterestService;
 
 import java.util.List;
 
-import javax.persistence.Table;
-
 @RestController
 @RequestMapping("/poi")
 public class PointOfInterestController {
