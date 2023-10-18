@@ -30,7 +30,7 @@ services:
       # - maven-build
       - postgres
     ports:
-      - "8080:85"
+      - "8080:8080"
 
   frontend:
     build:
@@ -40,8 +40,8 @@ services:
       - backend
       - postgres
     ports:
-      - "80:85"
-      
+      - "85:80"
+
   # nginx:
   #   image: nginx:latest
   #   volumes:
