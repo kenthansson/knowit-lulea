@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/poi")
+@CrossOrigin(allowedHeaders = "*", origins = "*")
 public class PointOfInterestController {
 
     @Autowired

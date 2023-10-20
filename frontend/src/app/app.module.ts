@@ -1,17 +1,25 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { HeaderComponent } from './header/header.component';
+import { MapPageComponent } from './map-page/map-page.component';
+import { PinsListPageComponent } from './pins-list-page/pins-list-page.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    MapPageComponent,
+    PinsListPageComponent
   ],
   imports: [
-    LeafletModule,
+    GoogleMapsModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

@@ -22,7 +22,6 @@ public class PointOfInterest {
 
     private String name;
     private String description;
-    private Double latitude;
-    private Double longitude;
-
+    private Double lat;
+    private Double lng;
 }
