@@ -6,10 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PoiService {
-
   private apiUrl = 'http://localhost:8080/poi';
-
+  
   constructor(private http: HttpClient) { }
+
+  getPois() {
+    console.log('PoiService.getPois() called');
+    return this.http.get(this.apiUrl);
+  }
 
   savePoi(poi: { lat: number, lng: number }): Observable<any> {
     console.log('PoiService.savePoi() called');

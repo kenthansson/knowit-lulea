@@ -34,14 +34,31 @@ export class MapPageComponent implements OnInit {
     this.map = this.mapElement.googleMap;
     this.addCenterControl();
     this.trackUserLocation();
+    this.showPois();
   }
+
+  currentUserCircle!: google.maps.Marker;
+
+  showPois() {
+    this.poiService.getPois().subscribe((response: any) => {
+      console.log(response);
+      response.forEach((poi: Poi) => {
+        new google.maps.Marker({
+          position: { lat: poi.lat, lng: poi.lng },
+          map: this.map,
+          title: poi.name
+        });
+      });
+    });
+  }
+
   watchId!: number;
-  currentUserCircle!: google.maps.Circle;
+  pos!: any;
 
   trackUserLocation() {
     if (navigator.geolocation) {
       this.watchId = navigator.geolocation.watchPosition((position) => {
-        const pos = {
+        this.pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
@@ -52,15 +69,10 @@ export class MapPageComponent implements OnInit {
         }
 
         // Skapa en ny cirkel på användarens nuvarande position
-        this.currentUserCircle = new google.maps.Circle({
-          strokeColor: '#3f51b5',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: '#3f51b5',
-          fillOpacity: 0.5,
+        this.currentUserCircle = new google.maps.Marker({
           map: this.map,
-          center: pos,
-          radius: 5
+          position: this.pos,
+          icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
         });
       },
         (error) => {
@@ -86,19 +98,8 @@ export class MapPageComponent implements OnInit {
   }
 
   centerOnUser() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-        this.map.setCenter(pos);
-        this.map.setZoom(15);  // Anpassa zoomnivån efter behov
-      });
-    } else {
-      // Geolocation is not supported by this browser
-      alert("Geolocation is not supported by this browser.");
-    }
+    this.map.setCenter(this.pos);
+    this.map.setZoom(15);  // Anpassa zoomnivån efter behov
   }
 
   addCenterControl() {
