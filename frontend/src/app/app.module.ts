@@ -9,16 +9,21 @@ import { MapPageComponent } from './map-page/map-page.component';
 import { PinsListPageComponent } from './pins-list-page/pins-list-page.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule } from '@angular/common/http';
+import { LeafletMapPageComponent } from './leaflet-map-page/leaflet-map-page.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MapPageComponent,
-    PinsListPageComponent
+    PinsListPageComponent,
+    LeafletMapPageComponent
   ],
   imports: [
     GoogleMapsModule,
+    LeafletModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
