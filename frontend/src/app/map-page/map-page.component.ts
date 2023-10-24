@@ -11,7 +11,7 @@ export class MapPageComponent implements OnInit {
   center = { lat: 65.5819525877293, lng: 22.154102325439453 };
   zoom = 12;
   width = '100%';
-  height = '90%';
+  height = '500px';
   markerPositions: any[] = [];
 
   options: google.maps.MapOptions = {

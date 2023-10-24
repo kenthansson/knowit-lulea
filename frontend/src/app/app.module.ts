@@ -11,7 +11,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule } from '@angular/common/http';
 import { LeafletMapPageComponent } from './leaflet-map-page/leaflet-map-page.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    NgbModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
