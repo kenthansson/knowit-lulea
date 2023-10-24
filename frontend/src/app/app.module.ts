@@ -11,6 +11,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { HttpClientModule } from '@angular/common/http';
 import { LeafletMapPageComponent } from './leaflet-map-page/leaflet-map-page.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
