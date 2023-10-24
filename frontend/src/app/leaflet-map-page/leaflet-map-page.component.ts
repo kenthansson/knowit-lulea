@@ -3,6 +3,8 @@ import * as L from 'leaflet';
 import { latLng, tileLayer } from 'leaflet';
 import { PoiService } from '../services/poi.service';
 import { Poi } from '../models/poi.model';
+import { AddPoiPopup } from './popup/popup.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-leaflet-map-page',
@@ -18,10 +20,11 @@ export class LeafletMapPageComponent implements OnInit {
     center: latLng(65.5819525877293, 22.154102325439453)
   };
 
-  constructor(private poiService: PoiService) {
+  constructor(private poiService: PoiService, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
+    L.Icon.Default.imagePath = "assets/leaflet/"
   }
 
 
@@ -46,6 +49,16 @@ export class LeafletMapPageComponent implements OnInit {
       });
     });
     console.log(map);
+    map.on('click', (e) => {
+      const dialogRef = this.dialog.open(AddPoiPopup, {
+        width: '250px',
+        data: {} // Du kan skicka med data till dialogen om det behövs.
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Dialogen stängd med resultat:', result);
+      });
+    });
   }
 
 }

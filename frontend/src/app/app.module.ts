@@ -12,6 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { LeafletMapPageComponent } from './leaflet-map-page/leaflet-map-page.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AddPoiPopup } from './leaflet-map-page/popup/popup.component';
 
 
 @NgModule({
@@ -20,14 +26,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     MapPageComponent,
     PinsListPageComponent,
-    LeafletMapPageComponent
+    LeafletMapPageComponent,
+    AddPoiPopup
   ],
   imports: [
     GoogleMapsModule,
+    MatDialogModule,
     LeafletModule,
+    MatButtonModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
