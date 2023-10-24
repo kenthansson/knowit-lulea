@@ -1,13 +1,15 @@
 <h1 mat-dialog-title>Spara PlatsPinne</h1>
-<mat-dialog-content class="mat-typography">
-<mat-form-field>
-  <input matInput [(ngModel)]="input1" name="input1" placeholder="Namn">
-</mat-form-field>
-<mat-form-field>
-  <input matInput [(ngModel)]="input2" name="input2" placeholder="Beskrivning">
-</mat-form-field>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
+<div mat-dialog-content class="mat-typography">
+	<mat-form-field>
+		<mat-label>Namn</mat-label>
+		<input matInput [(ngModel)]="namn">
+		</mat-form-field>
+		<mat-form-field>
+		<mat-label>Plats</mat-label>
+		<input matInput [(ngModel)]="plats">
+	</mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
   <button mat-raised-button (click)="onCancelClick()">Avbryt</button>
   <button mat-raised-button color="primary" (click)="onSaveClick()">Spara</button>
-</mat-dialog-actions>
+</div>
