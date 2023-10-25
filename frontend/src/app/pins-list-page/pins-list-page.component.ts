@@ -33,5 +33,16 @@ export class PinsListPageComponent implements OnInit {
         });
     }
 
+    deleteExpense(id: number) {
+        this.poiService.deletePoi(id).subscribe(
+            data => {
+                console.log('deleted response', data);
+                this.ngOnInit();
+            }
+        )
+    }
+
+
+
 
 }
