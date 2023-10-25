@@ -1,10 +1,4 @@
-CREATE TABLE point_of_interest (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    latitude DOUBLE PRECISION NOT NULL,
-    longitude DOUBLE PRECISION NOT NULL
-);
+SET search_path TO public;
 
 -- Insert sample data
 INSERT INTO point_of_interest (name, description, latitude, longitude) VALUES
