@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { latLng, tileLayer } from 'leaflet';
 import { PoiService } from '../services/poi.service';
@@ -20,7 +20,7 @@ export class LeafletMapPageComponent implements OnInit {
     center: latLng(65.5819525877293, 22.154102325439453)
   };
 
-  constructor(private poiService: PoiService, public dialog: MatDialog) {
+  constructor(private poiService: PoiService, public dialog: MatDialog, private ngZone: NgZone,) {
   }
 
   ngOnInit(): void {
@@ -44,20 +44,30 @@ export class LeafletMapPageComponent implements OnInit {
       console.log(response);
       response.forEach((poi: Poi) => {
         new L.Marker([poi.lat, poi.lng])
-          .bindPopup(poi.name)
+        .bindPopup('<h1>' + poi.name + '</h1><p>' + poi.description +'</p>')
           .addTo(map);
       });
     });
     console.log(map);
     map.on('click', (e) => {
+      this.ngZone.run(() => {
       const dialogRef = this.dialog.open(AddPoiPopup, {
-        width: '275px',
+        width: '300px',
+        height: '400px',
         data: {} // Du kan skicka med data till dialogen om det behövs.
       });
 
       dialogRef.afterClosed().subscribe(result => {
-        console.log('Dialogen stängd med resultat:', result);
+        if (result) {
+          let poi = new Poi(e.latlng.lat, e.latlng.lng, result.name, result.description)
+          this.poiService.savePoi(poi).subscribe((response: any) => {
+            new L.Marker([e.latlng.lat, e.latlng.lng])
+            .bindPopup('<h1>' + result.name + '</h1><p>' + result.description +'</p>')
+            .addTo(map);
+          });
+        }
       });
+    });
     });
   }
 

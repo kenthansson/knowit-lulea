@@ -1,14 +1,15 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject} from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
 	selector: 'poi-popup',
-	templateUrl: './popup.component.html'
+	templateUrl: './popup.component.html',
+    styleUrls: ['./popup.component.css']
 })
 export class AddPoiPopup {
-    namn: string = '';
-    plats: string = '';
+    name: string = '';
+    description: string = '';
   
     constructor(
       public dialogRef: MatDialogRef<AddPoiPopup>,
@@ -21,8 +22,8 @@ export class AddPoiPopup {
   
     onSaveClick(): void {
       const result = {
-        namn: this.namn,
-        plats: this.plats
+        name: this.name,
+        description: this.description
       };
       this.dialogRef.close(result);
     }
