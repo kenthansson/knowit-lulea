@@ -1,0 +1,27 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    /* Tar upp hela skärmens höjd */
+}
+
+mat-toolbar {
+    padding: 10px 20px;
+    justify-content: space-between;
+}
+
+.content-wrapper {
+    flex: 1;
+    /* Tar upp all tillgänglig yta efter .app-nav */
+    margin: 0;
+    /* Inga marginaler */
+    padding: 0;
+    /* Inget padding */
+    overflow-y: auto;
+    /* Skrollbar om innehållet är för stort */
+}
+
+.sidenav-container {
+    height: calc(100vh - 56px);
+    /* 56px är höjden på standardverktygsfältet */
+}

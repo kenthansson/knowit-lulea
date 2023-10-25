@@ -1,0 +1,26 @@
+/* Stil för korten */
+.mat-card {
+    width: 300px; /* Anpassa bredden efter dina behov */
+    margin: 10px; /* Anpassa marginalen efter dina behov */
+}
+
+/* Stil för kortens innehåll */
+.mat-card-content {
+    padding: 8px;
+}
+
+/* Stil för korttitel */
+.mat-card-title {
+    font-size: 1.5rem; /* Anpassa textstorleken efter dina behov */
+    font-weight: bold;
+}
+
+/* Stil för beskrivningstext */
+.mat-card-content p {
+    font-size: 1rem; /* Anpassa textstorleken efter dina behov */
+}
+
+/* Stil för text under beskrivning */
+.mat-card-content p:last-child {
+    color: #888; /* Anpassa färgen efter dina behov */
+}

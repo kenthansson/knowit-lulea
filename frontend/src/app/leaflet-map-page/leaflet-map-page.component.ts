@@ -51,7 +51,7 @@ export class LeafletMapPageComponent implements OnInit {
     console.log(map);
     map.on('click', (e) => {
       const dialogRef = this.dialog.open(AddPoiPopup, {
-        width: '250px',
+        width: '275px',
         data: {} // Du kan skicka med data till dialogen om det behövs.
       });
 

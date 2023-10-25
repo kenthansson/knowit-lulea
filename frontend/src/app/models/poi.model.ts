@@ -2,8 +2,8 @@ export class Poi {
     constructor(
       public lat: number,
       public lng: number,
-      public name: string
+      public name: string,
+      public description: string
 
     ) { }
   }
-  
