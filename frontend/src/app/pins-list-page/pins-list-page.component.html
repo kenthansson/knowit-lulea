@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-12">
+
+        <h2>Platspinnar Lista</h2>
+        <div *ngFor="let poi of pois">
+            <mat-card class="mat-card">
+                <mat-card-header>
+                    <mat-card-title>{{ poi.name }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>{{ poi.description }}</p>
+                    <p>Latitude: {{ poi.lat }}, Longitude: {{ poi.lng }}</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+    </div>
+</div>
