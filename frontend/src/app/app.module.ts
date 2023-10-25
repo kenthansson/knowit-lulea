@@ -12,6 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { LeafletMapPageComponent } from './leaflet-map-page/leaflet-map-page.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -23,6 +29,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LeafletMapPageComponent
   ],
   imports: [
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
     GoogleMapsModule,
     LeafletModule,
     HttpClientModule,

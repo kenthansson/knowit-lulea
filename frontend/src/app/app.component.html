@@ -1,2 +1,9 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<div class="app-container">
+    <mat-toolbar>
+        <span>PlatsPinnen <img src="assets/images/platspinnen.png" width="30" height="30" style="vertical-align: bottom;"></span>
+        <app-header></app-header>
+    </mat-toolbar>
+    <div class="content-wrapper">
+        <router-outlet></router-outlet>
+    </div>
+</div>

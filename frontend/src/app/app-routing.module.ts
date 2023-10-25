@@ -6,8 +6,8 @@ import { LeafletMapPageComponent } from './leaflet-map-page/leaflet-map-page.com
 
 const routes: Routes = [
   { path: '', redirectTo: '/map', pathMatch: 'full' },
-  { path: 'leaflet-map', component: LeafletMapPageComponent },
-  { path: 'map', component: MapPageComponent },
+  { path: 'map', component: LeafletMapPageComponent },
+  { path: 'google-map', component: MapPageComponent },
   { path: 'pins', component: PinsListPageComponent }
 ];
 
