@@ -1,18 +1,50 @@
 <div class="row">
     <div class="col-12">
 
-        <h2>Platspinnar Lista</h2>
-        <div *ngFor="let poi of pois">
-            <mat-card class="mat-card">
-                <mat-card-header>
-                    <mat-card-title>{{ poi.name }}</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <p>{{ poi.description }}</p>
-                    <p>Latitude: {{ poi.lat }}, Longitude: {{ poi.lng }}</p>
-                </mat-card-content>
-            </mat-card>
-        </div>
+        <h2 class="custom-h2">Platspinnar Lista</h2>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Namn </th>
+                <td mat-cell *matCellDef="let poi"> {{ poi.name }} </td>
+            </ng-container>
 
+            <!-- Description Column -->
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Beskrivning </th>
+                <td mat-cell *matCellDef="let poi"> {{ poi.description }} </td>
+            </ng-container>
+
+            <!-- Latitude Column -->
+            <ng-container matColumnDef="lat">
+                <th mat-header-cell *matHeaderCellDef> Latitud </th>
+                <td mat-cell *matCellDef="let poi"> {{ poi.lat }} </td>
+            </ng-container>
+
+            <!-- Longitude Column -->
+            <ng-container matColumnDef="lng">
+                <th mat-header-cell *matHeaderCellDef> Longitud </th>
+                <td mat-cell *matCellDef="let poi"> {{ poi.lng }}
+                    <div class="card-footer">
+                        <button class="btn btn-danger" (click)="deleteExpense(poi.id)" style="width: 10%;">Delete</button>
+                    </div>
+                </td>
+            </ng-container>
+<!--
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> Radera </th>
+                <td mat-cell *matCellDef="let poi">
+
+                </td>
+            </ng-container>
+            -->
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let poi; columns: displayedColumns"></tr>
+        </table>
+
+        <mat-paginator class="center-paginator" [pageSizeOptions]="[10, 25, 50, 100]" [pageSize]="10" [showFirstLastButtons]="true">
+        </mat-paginator>
     </div>
+
 </div>

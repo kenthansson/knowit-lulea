@@ -18,6 +18,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from "@angular/material/card";
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 @NgModule({
@@ -25,8 +27,8 @@ import {MatCardModule} from "@angular/material/card";
         AppComponent,
         HeaderComponent,
         MapPageComponent,
-        PinsListPageComponent,
-        LeafletMapPageComponent
+        LeafletMapPageComponent,
+        PinsListPageComponent
     ],
     imports: [
         MatToolbarModule,
@@ -46,7 +48,9 @@ import {MatCardModule} from "@angular/material/card";
             registrationStrategy: 'registerWhenStable:30000'
         }),
         BrowserAnimationsModule,
-        MatCardModule
+        MatCardModule,
+        MatTableModule,
+        MatPaginatorModule
     ],
     providers: [],
     bootstrap: [AppComponent]
