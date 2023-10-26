@@ -1,7 +1,7 @@
 export class Poi {
 
     constructor(
-        public id: number,
+        public id: number | undefined,
         public lat: number,
         public lng: number,
         public name: string,

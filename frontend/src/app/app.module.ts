@@ -18,8 +18,16 @@ import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from "@angular/material/card";
+<<<<<<< HEAD
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
+=======
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AddPoiPopup } from './leaflet-map-page/popup/popup.component';
+>>>>>>> popup
 
 
 @NgModule({
@@ -27,8 +35,14 @@ import {MatPaginatorModule} from "@angular/material/paginator";
         AppComponent,
         HeaderComponent,
         MapPageComponent,
+<<<<<<< HEAD
         LeafletMapPageComponent,
         PinsListPageComponent
+=======
+        PinsListPageComponent,
+        LeafletMapPageComponent,
+        AddPoiPopup
+>>>>>>> popup
     ],
     imports: [
         MatToolbarModule,
@@ -41,6 +55,10 @@ import {MatPaginatorModule} from "@angular/material/paginator";
         HttpClientModule,
         BrowserModule,
         AppRoutingModule,
+        MatDialogModule,
+        FormsModule,
+        MatInputModule,
+        MatFormFieldModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
             enabled: !isDevMode(),
             // Register the ServiceWorker as soon as the application is stable
