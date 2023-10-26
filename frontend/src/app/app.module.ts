@@ -18,16 +18,13 @@ import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from "@angular/material/card";
-<<<<<<< HEAD
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
-=======
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AddPoiPopup } from './leaflet-map-page/popup/popup.component';
->>>>>>> popup
 
 
 @NgModule({
@@ -35,14 +32,9 @@ import { AddPoiPopup } from './leaflet-map-page/popup/popup.component';
         AppComponent,
         HeaderComponent,
         MapPageComponent,
-<<<<<<< HEAD
         LeafletMapPageComponent,
-        PinsListPageComponent
-=======
         PinsListPageComponent,
-        LeafletMapPageComponent,
         AddPoiPopup
->>>>>>> popup
     ],
     imports: [
         MatToolbarModule,
