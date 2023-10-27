@@ -1,3 +1,5 @@
+import { Category } from "./category.model";
+
 export class Poi {
 
     constructor(
@@ -5,7 +7,10 @@ export class Poi {
         public lat: number,
         public lng: number,
         public name: string,
-        public description: string
+        public description: string,
+        public category: Category,
+        public created: Date,
+        public updated: Date | undefined
     ) {
     }
 }

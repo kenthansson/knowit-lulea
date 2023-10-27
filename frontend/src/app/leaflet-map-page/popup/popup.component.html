@@ -2,14 +2,24 @@
 <div mat-dialog-content class="mat-typography">
 	<mat-form-field>
 		<mat-label>Namn</mat-label>
-		<input matInput name="first" [(ngModel)]="name">
+			<input required matInput name="first" [(ngModel)]="name">
+			<mat-error *ngIf="isNameInvalid()">Namn är obligatoriskt.</mat-error>
 		</mat-form-field>
 		<mat-form-field appearance="fill" >
-		<mat-label>Beskrivning</mat-label>
-		<textarea matInput rows="5" name="first2" [(ngModel)]="description"></textarea>
-	</mat-form-field>
+			<mat-label>Beskrivning</mat-label>
+			<textarea matInput rows="5" name="first2" [(ngModel)]="description"></textarea>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Välj kategori</mat-label>
+			<mat-select [(ngModel)]="selectedCategory" required >
+			  <mat-option *ngFor="let category of data.categories" [value]="category">
+				{{category.name}}
+			  </mat-option>
+			</mat-select>
+			<mat-error *ngIf="isCategoryInvalid()">Kategori är obligatorisk.</mat-error>
+		  </mat-form-field>
 </div>
 <div mat-dialog-actions align="end">
   <button mat-raised-button (click)="onCancelClick()">Avbryt</button>
-  <button mat-raised-button color="primary" (click)="onSaveClick()">Spara</button>
+  <button mat-raised-button color="primary" (click)="onSaveClick()" [disabled]="isFormInvalid()">Spara</button>
 </div>

@@ -10,6 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class AddPoiPopup {
     name: string = '';
     description: string = '';
+    selectedCategory!: string;
   
     constructor(
       public dialogRef: MatDialogRef<AddPoiPopup>,
@@ -23,8 +24,22 @@ export class AddPoiPopup {
     onSaveClick(): void {
       const result = {
         name: this.name,
-        description: this.description
+        description: this.description,
+        category: this.selectedCategory
+
       };
       this.dialogRef.close(result);
     }
+
+    isNameInvalid(): boolean {
+        return !this.name;
+      }
+      
+      isCategoryInvalid(): boolean {
+        return !this.selectedCategory;
+      }
+      
+      isFormInvalid(): boolean {
+        return this.isNameInvalid() || this.isCategoryInvalid();
+      }
   }
