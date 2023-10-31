@@ -23,7 +23,7 @@ export class PinsEditDialogComponent {
   }
 
   onSaveClick() {
-    const updatedPoi: Poi = {
+    const updatedPoi = {
       id: this.data.poi.id,
       lat: this.data.poi.lat,
       lng: this.data.poi.lng,

@@ -72,22 +72,20 @@ export class LeafletMapPageComponent implements OnInit {
           let poi = new Poi(undefined, lat, lng, result.name, result.description, result.category, new Date(), undefined)
           this.poiService.savePoi(poi).subscribe(
             (response: any) => {
-              if (response.status === 200) {
-                // "OK" svar från post, lägg till markören på kartan
-                new L.Marker([lat, lng])
-                  .bindPopup('<h1>' + poi.name + '</h1><h4>' + poi.category.name + '</h4><p>' + poi.description + '</p><small>Tillagd: ' + new Date(poi.created).toLocaleDateString() + '</small>')
-                  .addTo(map);
-              } else {
-                // Felhantering om HTTP-statuskoden inte är 200
-                console.error('Något gick fel:', response);
-                // Visa meddelande för användaren
-                // Du kan använda t.ex. en toast, en varning eller något liknande här
-              }
+              // Detta block hanterar ett lyckat svar
+              // Om förfrågan var framgångsrik kommer du hit
+              // Inget behov av att kontrollera response.status
+              // "OK" svar från post, lägg till markören på kartan
+              new L.Marker([lat, lng])
+                .bindPopup('<h1>' + poi.name + '</h1><h4>' + poi.category.name + '</h4><p>' + poi.description + '</p><small>Tillagd: ' + new Date(poi.created).toLocaleDateString() + '</small>')
+                .addTo(map);
             },
             (error) => {
-              // Felhantering om det uppstår ett nätverksfel eller liknande
-              console.error('Nätverksfel:', error);
-              // Visa meddelande för användaren om nätverksfel
+              // Detta block hanterar fel
+              // Om förfrågan misslyckades eller om det uppstod ett nätverksfel kommer du hit
+              console.error('Något gick fel:', error);
+              // Visa meddelande för användaren
+              // Du kan använda t.ex. en toast, en varning eller något liknande här
             }
           );
         }
