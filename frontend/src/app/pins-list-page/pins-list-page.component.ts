@@ -60,18 +60,22 @@ export class PinsListPageComponent implements OnInit {
         });
     }
 
-
     updatePoi(id: number, updatedPoi: Poi) {
-        this.poiService.updatePoi(id, updatedPoi).subscribe(
-            (data: Poi) => {
+        this.poiService.updatePoi(id, updatedPoi).subscribe({
+            next: (data: Poi) => {
                 console.log('Updated response', data);
                 this.loadPois(); // Reload the list of POIs after update
             },
-            (error) => {
+            error: (error) => {
                 console.error('Error updating POI', error);
             }
-        );
+        });
     }
 
+
+    applyFilter(event: any) {
+        const filterValue = (event.target as HTMLInputElement).value;
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
 
 }

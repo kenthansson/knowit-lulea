@@ -1,42 +1,46 @@
 <div class="row">
     <div class="col-12">
         <h2 class="custom-h2">Platspinnar Lista</h2>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef> Namn</th>
-                <td mat-cell *matCellDef="let poi"> {{ poi.name }} </td>
-            </ng-container>
+        <div class="container">
+            <input matInput class="inputField" (input)="applyFilter($event)" placeholder="S&ouml;k..">
 
-            <!-- Description Column -->
-            <ng-container matColumnDef="description">
-                <th mat-header-cell *matHeaderCellDef> Beskrivning</th>
-                <td mat-cell *matCellDef="let poi"> {{ poi.description }} </td>
-            </ng-container>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Namn</th>
+                    <td mat-cell *matCellDef="let poi"> {{ poi.name }} </td>
+                </ng-container>
 
-            <!-- Latitude Column -->
-            <ng-container matColumnDef="lat">
-                <th mat-header-cell *matHeaderCellDef> Latitud</th>
-                <td mat-cell *matCellDef="let poi"> {{ poi.lat }} </td>
-            </ng-container>
+                <!-- Description Column -->
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> Beskrivning</th>
+                    <td mat-cell *matCellDef="let poi"> {{ poi.description }} </td>
+                </ng-container>
 
-            <!-- Longitude Column -->
-            <ng-container matColumnDef="lng">
-                <th mat-header-cell *matHeaderCellDef> Longitud</th>
-                <td mat-cell *matCellDef="let poi"> {{ poi.lng }}
-                    <div class="card-footer">
-                        <button mat-button (click)="editPoi(poi)">Redigera</button>
-                        <button mat-button (click)="deletePoi(poi.id)">Delete</button>
-                    </div>
-                </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let poi; columns: displayedColumns"></tr>
-        </table>
+                <!-- Latitude Column -->
+                <ng-container matColumnDef="lat">
+                    <th mat-header-cell *matHeaderCellDef> Latitud</th>
+                    <td mat-cell *matCellDef="let poi"> {{ poi.lat }} </td>
+                </ng-container>
 
-        <mat-paginator class="center-paginator" [pageSizeOptions]="[10, 25, 50, 100]" [pageSize]="10"
-                       [showFirstLastButtons]="true">
-        </mat-paginator>
+                <!-- Longitude Column -->
+                <ng-container matColumnDef="lng">
+                    <th mat-header-cell *matHeaderCellDef> Longitud</th>
+                    <td mat-cell *matCellDef="let poi"> {{ poi.lng }}
+                        <div class="card-footer">
+                            <button mat-button (click)="editPoi(poi)">Redigera</button>
+                            <button mat-button (click)="deletePoi(poi.id)">Delete</button>
+                        </div>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let poi; columns: displayedColumns"></tr>
+            </table>
+
+            <mat-paginator class="center-paginator" [pageSizeOptions]="[10, 25, 50, 100]" [pageSize]="10"
+                           [showFirstLastButtons]="true">
+            </mat-paginator>
+        </div>
     </div>
 
 </div>
