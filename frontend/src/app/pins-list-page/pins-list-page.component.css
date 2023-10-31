@@ -1,10 +1,22 @@
-.custom-h2{
+.custom-h2 {
     color: grey;
     font-size: 24px;
     font-weight: bold;
     padding: 12px;
 
 }
+.container {
+    padding: 30px;
+}
+
+.inputField {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+    padding: 12px;
+}
+
+
 
 .center-paginator {
     display: flex;

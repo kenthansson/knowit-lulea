@@ -26,6 +26,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AddPoiPopup } from './leaflet-map-page/popup/popup.component';
 import { MatSelectModule } from '@angular/material/select';
+import { PinsEditDialogComponent } from './pins-list-page/pins-list-form/pins-edit-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -35,7 +38,8 @@ import { MatSelectModule } from '@angular/material/select';
         MapPageComponent,
         LeafletMapPageComponent,
         PinsListPageComponent,
-        AddPoiPopup
+        AddPoiPopup,
+        PinsEditDialogComponent
     ],
     imports: [
         MatToolbarModule,
@@ -52,6 +56,7 @@ import { MatSelectModule } from '@angular/material/select';
         FormsModule,
         MatInputModule,
         MatFormFieldModule,
+        ReactiveFormsModule,
         MatSelectModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
             enabled: !isDevMode(),

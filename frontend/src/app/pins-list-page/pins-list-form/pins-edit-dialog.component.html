@@ -1,0 +1,13 @@
+<h2>Redigera</h2>
+<form [formGroup]="editForm">
+    <mat-form-field>
+        <input matInput formControlName="name" placeholder="Namn">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput formControlName="description" placeholder="Beskrivning">
+    </mat-form-field>
+    <mat-dialog-actions>
+        <button mat-button (click)="onCancelClick()">Avbryt</button>
+        <button mat-raised-button (click)="onSaveClick()">Spara</button>
+    </mat-dialog-actions>
+</form>
