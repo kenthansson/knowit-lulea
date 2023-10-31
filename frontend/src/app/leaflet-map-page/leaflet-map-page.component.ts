@@ -7,6 +7,7 @@ import { AddPoiPopup } from './popup/popup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Category } from '../models/category.model';
 import { CategoryService } from '../services/category.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-leaflet-map-page',
@@ -22,7 +23,7 @@ export class LeafletMapPageComponent implements OnInit {
     center: latLng(65.5819525877293, 22.154102325439453)
   };
 
-  constructor(private poiService: PoiService, private categoryService: CategoryService, public dialog: MatDialog, private ngZone: NgZone,) {
+  constructor(private poiService: PoiService, private categoryService: CategoryService, public dialog: MatDialog, private ngZone: NgZone, private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -81,8 +82,9 @@ export class LeafletMapPageComponent implements OnInit {
                 .addTo(map);
             },
             (error) => {
-              // Detta block hanterar fel
-              // Om förfrågan misslyckades eller om det uppstod ett nätverksfel kommer du hit
+              this.snackBar.open('Något fick fel, din PlatsPinne kunde inte sparas.', 'Stäng', {
+                duration: 3000, // Ange varaktigheten av meddelandet
+              });
               console.error('Något gick fel:', error);
               // Visa meddelande för användaren
               // Du kan använda t.ex. en toast, en varning eller något liknande här

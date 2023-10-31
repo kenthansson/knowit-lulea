@@ -28,6 +28,7 @@ import { AddPoiPopup } from './leaflet-map-page/popup/popup.component';
 import { MatSelectModule } from '@angular/material/select';
 import { PinsEditDialogComponent } from './pins-list-page/pins-list-form/pins-edit-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -58,6 +59,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatFormFieldModule,
         ReactiveFormsModule,
         MatSelectModule,
+        MatSnackBarModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
             enabled: !isDevMode(),
             // Register the ServiceWorker as soon as the application is stable
