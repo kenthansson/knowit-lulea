@@ -11,6 +11,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    restart: unless-stopped
     depends_on:
       - backend
       - frontend
@@ -23,6 +24,7 @@ services:
       POSTGRES_DB: platspinnendb
     ports:
       - "5432:5432"
+    restart: unless-stopped
     volumes:
       - postgres-data:/var/lib/postgresql/data
       - ./postgres:/docker-entrypoint-initdb.d
@@ -35,20 +37,22 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/platspinnendb
       SPRING_DATASOURCE_USERNAME: pp-db-user
       SPRING_DATASOURCE_PASSWORD: pp-db-pass
-    depends_on:
-      - postgres
     ports:
       - "8080:8080"
+    restart: unless-stopped
+    depends_on:
+      - postgres
 
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    ports:
+      - "85:80"
+    restart: unless-stopped
     depends_on:
       - backend
       - postgres
-    ports:
-      - "85:80"
 
 volumes:
   postgres-data:
