@@ -7,7 +7,7 @@ import {Poi} from "../models/poi.model";
     providedIn: 'root'
 })
 export class PoiService {
-    private apiUrl = 'http://localhost:8080/poi';
+    private apiUrl = '/api/poi';
 
 
     constructor(private http: HttpClient) {

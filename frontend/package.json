@@ -8,6 +8,15 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  "build": {
+    "builder": "@angular-devkit/build-angular:browser",
+    "options": {
+      "allowedCommonJsDependencies": [
+        "leaflet",
+        "asymmetrik-ngx-leaflet"
+      ]
+    }
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^16.2.10",
