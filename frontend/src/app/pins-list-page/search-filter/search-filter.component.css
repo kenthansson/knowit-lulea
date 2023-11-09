@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.sidenav-container {
+    height: 100%;
+    width: 100%;
+}
+
+.mat-sidenav {
+    width: 250px; /* Anpassa bredden efter dina behov */
+}
+
+.filter-components {
+    padding: 20px;
+}
+
+/* Stil för sökfält och knappar */
+mat-form-field {
+    margin-right: 8px;
+}
+
+button {
+    margin: 0 8px;
+}

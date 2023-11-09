@@ -1,0 +1,33 @@
+<head>
+    <title>Search Filter</title>
+</head>
+<body>
+    <div class="search-filter-container">
+        <mat-form-field>
+            <input matInput (input)="applyFilter($event)" placeholder="S&ouml;kord..">
+        </mat-form-field>
+
+        <mat-expansion-panel [expanded]="isAdvancedFilterOpen">
+            <mat-expansion-panel-header>
+                <mat-panel-title>Avancerad filtrering</mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="advanced-filter-form">
+                <mat-form-field>
+                    <mat-label>from date</mat-label>
+                    <input matInput [matDatepicker]="startDatePicker" placeholder="Select start date" [(ngModel)]="selectedStartDate" (dateChange)="applyDateFilter()">
+                    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startDatePicker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>to date</mat-label>
+                    <input matInput [matDatepicker]="endDatePicker" placeholder="Select end date" [(ngModel)]="selectedEndDate" (dateChange)="applyDateFilter()">
+                    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #endDatePicker></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+        </mat-expansion-panel>
+    </div>
+
+</body>
