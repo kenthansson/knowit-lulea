@@ -46,7 +46,8 @@ import {MatSortModule} from "@angular/material/sort";
         LeafletMapPageComponent,
         PinsListPageComponent,
         AddPoiPopup,
-        PinsEditDialogComponent
+        PinsEditDialogComponent,
+        SearchFilterComponent
     ],
     imports: [
         MatToolbarModule,
