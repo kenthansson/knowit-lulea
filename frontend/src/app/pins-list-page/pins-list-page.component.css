@@ -1,25 +1,93 @@
-.custom-h2 {
-    color: grey;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 12px;
-
-}
-.container {
-    padding: 30px;
+/* Basstilar */
+.table-container {
+    margin: 0 auto;
+    overflow-x: auto; /* Gör tabellen skrollbar på små skärmar */
 }
 
-.inputField {
-    width: 100%;
-    max-width: 300px;
+.table-title {
+    text-align: center;
     margin-bottom: 20px;
-    padding: 12px;
+    font-size: 24px; /* Större rubrikstorlek för bättre läsbarhet */
+    color: #333; /* Mörk textfärg för bättre kontrast */
 }
 
+/* Stilar för standard HTML-tabell */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Skapa utrymme under tabellen för paginering */
+}
 
+th, td {
+    padding: 12px 8px; /* Generöst med utrymme i cellerna för läsbarhet */
+    text-align: left;
+    border-bottom: 1px solid #ccc; /* Ljusare linje för en subtil avskiljare */
+}
 
-.center-paginator {
+th {
+    background-color: #f8f8f8; /* Ljus bakgrundsfärg för rubrikrader */
+    font-weight: bold;
+    color: #333;
+}
+
+tbody tr:hover {
+    background-color: #f0f0f0; /* Highlight rad vid hovring för bättre interaktivitet */
+}
+
+/* Stilar för paginator */
+.mat-paginator {
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Responsiva stilar */
+@media (max-width: 600px) {
+    /* Använd flexbox för att stapla cellinnehållet vertikalt */
+    .mat-row, .mat-header-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Justera rubrikerna */
+    th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    /* Anpassa cellerna för att visa information i blockform */
+    td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: right;
+        padding: 10px;
+    }
+
+    /* Visa rubriknamnet för varje cell */
+    td::before {
+        content: attr(data-label);
+        flex: 1;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    /* Återställ stilar för paginatorn */
+    .mat-paginator {
+        width: 100%;
+        padding: 0 10px;
+    }
+}
+
+@media (min-width: 601px) {
+    th, td {
+        display: table-cell;
+    }
+
+    td::before {
+        content: none;
+    }
 }
